@@ -245,24 +245,39 @@ class RekamMedisController extends Controller
                 return false;
             });
         }
-        // dd($rekamMedis);
 
         $view = [
             'data' => view('main.rekam-medis.filter.render', compact('rekamMedis'))->render(),
         ];
-        // $data = [];
-        // foreach ($rekamMedis as $rekamMedis) {
-        //     foreach(json_decode($rekamMedis->log, true) as $rm) {
-        //         $content = $rm['content'];
-        //         $data[] = [
-        //             'rm_id' => $rekamMedis->id,
-        //             'kode' => $rekamMedis->kode,
-        //             'tanggal' => date_format(date_create($rm['time']), 'd-m-Y'),
-        //             'petugas' => User::find($rm['user_id'])->nama,
-        //             'dokumen' => $content['dokumen']
-        //         ];
-        //     }
-        // }
+        return response()->json($view);
+    }
+
+    public function print(Request $request)
+    {
+        $kategori = $request->kategori;
+        if ( $kategori== 'Semua') {
+            $rekamMedis = RekamMedis::all();
+        } else {
+            $startTime = $request->input('tanggal_awal');
+            $endTime = $request->input('tanggal_akhir');
+
+            $data = RekamMedis::with('user')->get();
+
+            // Filter records based on the 'time' attribute within the 'log' array
+            $rekamMedis = $data->filter(function ($record) use ($startTime, $endTime) {
+                $logs = json_decode($record->log, true);
+                foreach ($logs as $log) {
+                    if (isset($log['time']) && $log['time'] >= $startTime && $log['time'] <= $endTime) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
+
+        $view = [
+            'data' => view('main.rekam-medis.print.render', compact('rekamMedis', 'kategori'))->render(),
+        ];
 
         return response()->json($view);
     }

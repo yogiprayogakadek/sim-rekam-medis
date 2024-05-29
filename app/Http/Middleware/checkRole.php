@@ -21,6 +21,7 @@ class checkRole
             }
         }
 
-        abort(403);
+        return response()->view('error.forbidden', [], 403);
+        // abort(403);
     }
 }

@@ -1,143 +1,100 @@
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <title>Login V12</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="Webinning" name="author">
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="https://dashly-theme.com/assets/css/theme.bundle.css" id="stylesheetLTR">
-    <link rel="stylesheet" href="https://dashly-theme.com/assets/css/theme.rtl.bundle.css" id="stylesheetRTL"
-        disabled="">
+    <link rel="icon" type="image/png" href="https://colorlib.com/etc/lf/Login_v12/images/icons/favicon.ico" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap">
-    <link rel="stylesheet" onload="this.onload=null;this.removeAttribute('media');"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap">
+    <link rel="stylesheet" type="text/css"
+        href="https://colorlib.com/etc/lf/Login_v12/vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- no-JS fallback -->
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
-    </noscript>
+    <link rel="stylesheet" type="text/css"
+        href="https://colorlib.com/etc/lf/Login_v12/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://colorlib.com/etc/lf/Login_v12/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v12/vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://colorlib.com/etc/lf/Login_v12/vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v12/vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v12/css/util.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v12/css/main.css">
 
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('assets/image/logo.png') }}" sizes="any">
-    <!-- Page Title -->
-    <title>SIM - Rekam Medis</title>
 </head>
 
-<body class="d-flex align-items-center bg-light-green">
-    <!-- MAIN CONTENT -->
-    <main class="container-fluid">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 col-lg-6 px-lg-4 px-xl-8 d-flex flex-column vh-100 py-6">
-
-                <!-- Brand -->
-                <a class="navbar-brand mb-auto" href="javascript:void(0)">
-                    <img src="{{ asset('assets/image/logo.png') }}" class="navbar-brand-img logo-light logo-large"
-                        alt="..." width="75">
-                    <img src="{{ asset('assets/image/logo.png') }}" class="navbar-brand-img logo-dark logo-large"
-                        alt="..." width="75">
-                </a>
-                <div>
-                    <!-- Title -->
-                    <h1 class="mb-2">
-                        SIM - Rekam Medis
-                    </h1>
-
-                    <!-- Subtitle -->
-                    <p class="text-secondary">
-                        Masukkan username and password untuk login
-                    </p>
-
-                    <!-- Form -->
-                    <form role="form" action="{{ route('login') }}" method="POST">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="mb-4">
-
-                                    <!-- Label -->
-                                    <label class="form-label">
-                                        Username
-                                    </label>
-
-                                    <!-- Input -->
-                                    <input type="text" class="form-control @error('username') is-invalid @enderror"
-                                        placeholder="masukkan username" name="username" id="username"
-                                        value="{{ old('username') }}">
-                                    @error('username')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <!-- Password -->
-                                <div class="mb-4">
-
-                                    <div class="row">
-                                        <div class="col">
-
-                                            <!-- Label -->
-                                            <label class="form-label">
-                                                Password
-                                            </label>
-                                        </div>
-                                    </div> <!-- / .row -->
-
-                                    <!-- Input -->
-                                    <div class="input-group input-group-merge">
-                                        <input type="password"
-                                            class="form-control @error('password') is-invalid @enderror"
-                                            autocomplete="off" data-toggle-password-input=""
-                                            placeholder="masukkan password" name="password">
-
-                                        <button type="button" class="input-group-text px-4 text-secondary link-primary"
-                                            data-toggle-password=""></button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- / .row -->
-
-                        <!-- Button -->
-                        <button type="submit" class="btn btn-primary mt-3">
-                            Log in
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url({{ asset('assets/image/login.jpg') }});">
+            <div class="wrap-login100 p-t-190 p-b-30">
+                <form class="login100-form validate-form" action="{{ route('login') }}" method="POST">
+                    @csrf
+                    <div class="login100-form-avatar">
+                        <img src="{{ asset('assets/image/logo.png') }}" alt="AVATAR">
+                    </div>
+                    <span class="login100-form-title p-t-20 p-b-45">
+                        SIM-Rekam Medis
+                    </span>
+                    <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+                        <input class="input100 @error('username') is-invalid @enderror" type="text" name="username"
+                            placeholder="Username" value="{{ old('username') }}">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        @error('username')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+                        <input class="input100 @error('password') is-invalid @enderror" type="password" name="pass"
+                            placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <div class="container-login100-form-btn p-t-10">
+                        <button class="login100-form-btn" type="submit">
+                            Login
                         </button>
-                    </form>
-                </div>
-
-                <div class="mt-auto">
-
-                    <!-- Link -->
-                    <!-- {{-- <small class="mb-0 text-muted">
-                        Don't have an account yet? <a href="./sign-up-cover.html" class="fw-semibold">Sign up</a>
-                    </small> --}} -->
-                </div>
-
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 
-            <div class="col-md-5 col-lg-6 d-none d-lg-block">
+    <script src="https://colorlib.com/etc/lf/Login_v12/vendor/jquery/jquery-3.2.1.min.js"></script>
 
-                <!-- Image -->
-                <div class="bg-size-cover bg-position-center bg-repeat-no-repeat overlay overlay-dark overlay-50 vh-100 me-n4"
-                    style="background-image: url({{ asset('assets/image/login.jpg') }});">
-                </div>
-            </div>
-        </div> <!-- / .row -->
-    </main> <!-- / main -->
+    <script src="https://colorlib.com/etc/lf/Login_v12/vendor/bootstrap/js/popper.js"></script>
+    <script src="https://colorlib.com/etc/lf/Login_v12/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- JAVASCRIPT-->
-    <!-- Theme JS -->
-    <script src="https://dashly-theme.com/assets/js/theme.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://colorlib.com/etc/lf/Login_v12/vendor/select2/select2.min.js"></script>
+
+    <script src="https://colorlib.com/etc/lf/Login_v12/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script>
@@ -151,7 +108,6 @@
             @endif
         });
     </script>
-
 </body>
 
 </html>

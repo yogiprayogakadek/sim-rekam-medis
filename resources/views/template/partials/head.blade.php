@@ -4,8 +4,8 @@
     <title>SIM Rekam Medis</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/image/logo.png') }}">
+    <link rel="icon" href="{{ asset('assets/image/logo.png') }}" type="image/x-icon">
 
     <!-- Data table CSS -->
     <link href="{{ asset('assets/css/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />

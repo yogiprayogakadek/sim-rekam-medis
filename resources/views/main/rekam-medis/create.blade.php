@@ -13,8 +13,9 @@
                 <div class="form-wrap">
                     <form id="formAdd">
                         <div class="form-group mb-0 mb-15 with-validation kode" id="kode-group">
-                            <label class="control-label mb-10 " for="kode">Kode</label> <small>(biarkan
-                                kosong jika ingin membuat kode otomatis)</small>
+                            <label class="control-label mb-10 " for="kode">Kode</label>
+                            {{-- <label class="control-label mb-10 " for="kode">Kode</label> <small>(biarkan
+                                kosong jika ingin membuat kode otomatis)</small> --}}
                             <input type="text" id="kode" name="kode" class="form-control"
                                 placeholder="kode rekam-medis">
                             <div class="help-block with-errors error-message">

@@ -29,4 +29,5 @@
 
 <script src="{{ asset('assets/js/dist/sweetalert2.min.js') }}"></script>
 <script src="{{ asset('assets/js/dist/jasny-bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/print/main.js') }}"></script>
 @stack('script')

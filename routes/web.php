@@ -24,6 +24,7 @@ Route::namespace('Main')->middleware('auth')->group(function() {
             Route::post('/update', 'update')->name('update');
             Route::post('/delete', 'delete')->name('delete');
             Route::post('/filter', 'filter')->name('filter');
+            Route::post('/print', 'print')->name('print');
         });
 
     Route::controller('UserController')

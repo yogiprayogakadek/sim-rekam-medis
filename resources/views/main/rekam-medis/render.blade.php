@@ -30,14 +30,14 @@
 </div>
 {{-- End --}}
 
-{{-- Filter Modal --}}
+{{-- Filter Modal & Print Modal --}}
 <div id="filter-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h5 class="modal-title">Filter Data</h5>
+                <h5 class="modal-title">Title</h5>
             </div>
             <div class="modal-body">
                 <div class="form-group">
@@ -78,12 +78,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary btn-outline btn-search">Filter</button>
+                <button type="button" class="btn btn-primary btn-outline btn-print-data">Print</button>
             </div>
         </div>
     </div>
 </div>
 {{-- End --}}
 
+{{-- content --}}
 <div class="col-sm-12">
     <div class="panel panel-default card-view">
         <div class="panel-heading">
@@ -117,16 +119,6 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            {{-- <tfoot>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Kode</th>
-                                    <th>Tanggal</th>
-                                    <th>Petugas</th>
-                                    <th>Dokumen</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </tfoot> --}}
                             <tbody>
                                 @foreach ($rekamMedis as $rm)
                                     @php
@@ -136,7 +128,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a href="javascript:void(0)" class="history-check"
-                                                data-id="{{ $rm->id }}">
+                                                data-id="{{ $rm->id }}" data-toggle="tooltip"
+                                                title="Double click untuk melihat history">
                                                 {{ $rm->kode }}
                                             </a>
                                         </td>
@@ -174,6 +167,7 @@
 
 <script>
     $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
         $('#table').DataTable({
             responsive: true
         });
@@ -217,17 +211,46 @@
         // filter modal
         $('.btn-filter').on('click', function() {
             $('#filter-modal').modal('show')
+            $('#filter-modal .modal-title').text('Filter Data')
+            $('.btn-search').show()
+            $('.btn-print-data').hide();
             $('.btn-search').prop('disabled', true)
+
+            $('.tanggal-awal, .tanggal-akhir').val('');
+            $("#kategori").val("").change();
+        });
+
+        // filter modal
+        $('.btn-print').on('click', function() {
+            $('#filter-modal').modal('show')
+            $('#filter-modal .modal-title').text('Print Data')
+            $('.btn-print-data').prop('disabled', true)
+            $('.btn-search').hide()
+            $('.btn-print-data').show();
         });
 
         $('#kategori').on('change', function() {
-            let value = $(this).val();
+            // let value = $(this).val();
+            // let title = $('#filter-modal .modal-title').text();
+            // value == 'Range Waktu' ? $('.range-date').prop('hidden', false) : $('.range-date').prop(
+            //     'hidden',
+            //     true);
+            // if (title == 'Filter Data') {
+            //     value == 'Semua' ? $('.btn-search').prop('disabled', false) : $('.btn-search').prop(
+            //         'disabled', true);
+            // } else {
+            //     value == 'Semua' ? $('.btn-print-data').prop('disabled', false) : $('.btn-print-data')
+            //         .prop(
+            //             'disabled', true);
+            // }
 
-            value == 'Range Waktu' ? $('.range-date').prop('hidden', false) : $('.range-date').prop(
-                'hidden',
-                true);
-            value == 'Semua' ? $('.btn-search').prop('disabled', false) : $('.btn-search').prop(
-                'disabled', true);
+            let value = $(this).val();
+            let title = $('#filter-modal .modal-title').text();
+
+            $('.range-date').prop('hidden', value !== 'Range Waktu');
+
+            const $button = title == 'Filter Data' ? $('.btn-search') : $('.btn-print-data');
+            $button.prop('disabled', value !== 'Semua');
         });
 
         function validateField(fieldClass, errorClass, errorMessage) {
@@ -249,7 +272,16 @@
             const tanggalAkhir = $('.tanggal-akhir').val();
 
             // Mengaktifkan atau menonaktifkan tombol pencarian
-            $('.btn-search').prop('disabled', !tanggalAwal || !tanggalAkhir);
+            // let title = $('#filter-modal .modal-title').text();
+            // if (title == 'Filter Data') {
+            //     $('.btn-search').prop('disabled', !tanggalAwal || !tanggalAkhir);
+            // } else {
+            //     $('.btn-print-data').prop('disabled', !tanggalAwal || !tanggalAkhir);
+            // }
+
+            let title = $('#filter-modal .modal-title').text();
+            let $button = title == 'Filter Data' ? $('.btn-search') : $('.btn-print-data');
+            $button.prop('disabled', !tanggalAwal || !tanggalAkhir);
 
             // Validasi individual tanggal
             validateField('.tanggal-awal', '.error-tanggal-awal', 'Mohon isi tanggal awal');
@@ -273,6 +305,7 @@
 
         $('.tanggal-awal, .tanggal-akhir').on('change', validateDates);
 
+        // pencarian
         $('.btn-search').on('click', function() {
             let tanggalAwal = $('.tanggal-awal').val();
             let tanggalAkhir = $('.tanggal-akhir').val();
@@ -300,6 +333,57 @@
                 error: function(error) {
                     console.log("Error", error);
                 },
+            });
+        });
+
+        // print data
+        $("body").on("click", ".btn-print-data", function() {
+            let tanggalAwal = $('.tanggal-awal').val();
+            let tanggalAkhir = $('.tanggal-akhir').val();
+            let kategori = $('#kategori').val();
+
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                },
+            });
+
+            Swal.fire({
+                title: "Cetak data rekam medis?",
+                text: "Laporan akan dicetak",
+                icon: "success",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, cetak!",
+            }).then((result) => {
+                if (result.value) {
+                    var mode = "iframe"; //popup
+                    var close = mode == "popup";
+                    var options = {
+                        mode: mode,
+                        popClose: close,
+                        popTitle: "LaporanDataRekamMedis",
+                        popOrient: "Portrait",
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "rekam-medis/print",
+                        data: {
+                            tanggal_awal: tanggalAwal,
+                            tanggal_akhir: tanggalAkhir,
+                            kategori: kategori
+                        },
+                        success: function(response) {
+                            document.title =
+                                "SIM Rekam Medis - Print" +
+                                new Date().toJSON().slice(0, 10).replace(/-/g, "/");
+                            $(response.data)
+                                .find("div.printableArea")
+                                .printArea(options);
+                        },
+                    });
+                }
             });
         });
     });
