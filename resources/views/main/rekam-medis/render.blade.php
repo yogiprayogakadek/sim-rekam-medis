@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h5 class="modal-title">Histori Perubahan</h5>
+                <h5 class="modal-title"></h5>
             </div>
             <div class="modal-body">
                 <table id="history-table" class="table table-hover display  pb-30" style="width: 100% !important;">
@@ -14,6 +14,9 @@
                             <th>#</th>
                             <th>Title</th>
                             <th>Kode</th>
+                            <th>Nama Pasien</th>
+                            <th>NIK</th>
+                            <th>Jenis Kelamin</th>
                             <th>Tanggal</th>
                             <th>Petugas</th>
                             <th>Dokumen</th>
@@ -113,6 +116,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Kode</th>
+                                    <th>Nama Pasien</th>
+                                    <th>NIK</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Tanggal</th>
                                     <th>Petugas</th>
                                     <th>Dokumen</th>
@@ -128,11 +134,14 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a href="javascript:void(0)" class="history-check"
-                                                data-id="{{ $rm->id }}" data-toggle="tooltip"
-                                                title="Double click untuk melihat history">
+                                                data-id="{{ $rm->id }}" data-kode="{{ $rm->kode }}"
+                                                data-toggle="tooltip" title="Double click untuk melihat history">
                                                 {{ $rm->kode }}
                                             </a>
                                         </td>
+                                        <td>{{ $rm->nama_pasien }}</td>
+                                        <td>{{ $rm->nik }}</td>
+                                        <td>{{ $rm->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan' }}</td>
                                         <td>{{ date_format(date_create($log[count($log) - 1]['time']), 'd-m-Y') }}</td>
                                         <td>{{ $rm->user->nama }}</td>
                                         <td>
@@ -173,7 +182,10 @@
         });
 
         $('.history-check').on('dblclick', function() {
+            let kodeRekamMedis = $(this).data('kode')
             $('#responsive-modal').modal('show');
+            $('#responsive-modal .modal-title').html('Histori Perubahan - <strong>' + kodeRekamMedis +
+                '</strong>');
 
             // Hancurkan DataTable jika sudah ada
             if ($.fn.dataTable.isDataTable('#history-table')) {
@@ -195,6 +207,9 @@
                         "<td>" + (index + 1) + "</td>" +
                         "<td>" + value.title + "</td>" +
                         "<td>" + value.kode + "</td>" +
+                        "<td>" + value.nama_pasien + "</td>" +
+                        "<td>" + value.nik + "</td>" +
+                        "<td>" + value.jenis_kelamin + "</td>" +
                         "<td>" + value.tanggal + "</td>" +
                         "<td>" + value.petugas + "</td>" +
                         "<td><a href=" + value.dokumen + " target='_blank'>" +
@@ -364,7 +379,7 @@
                         mode: mode,
                         popClose: close,
                         popTitle: "LaporanDataRekamMedis",
-                        popOrient: "Portrait",
+                        popOrient: "Landscape",
                     };
                     $.ajax({
                         type: "POST",
@@ -376,7 +391,7 @@
                         },
                         success: function(response) {
                             document.title =
-                                "SIM Rekam Medis - Print" +
+                                "SIM Rekam Medis | RSD Mangusada - Print" +
                                 new Date().toJSON().slice(0, 10).replace(/-/g, "/");
                             $(response.data)
                                 .find("div.printableArea")

@@ -9,6 +9,10 @@ Route::namespace('Main')->middleware('auth')->group(function() {
         ->name('dashboard.')
         ->group(function() {
             Route::get('/', 'index')->name('index');
+
+            // chart
+            Route::get('/daily-chart', 'dailyChart')->name('daily.chart');
+            Route::post('/filter-chart', 'filterChart')->name('filter.chart');
         });
 
     Route::controller('RekamMedisController')
@@ -38,6 +42,7 @@ Route::namespace('Main')->middleware('auth')->group(function() {
             Route::get('/edit/{id}', 'edit')->name('edit');
             Route::post('/store', 'store')->name('store');
             Route::post('/update', 'update')->name('update');
+            Route::post('/update-password', 'updatePassword')->name('update.password');
             Route::post('/delete', 'delete')->name('delete');
         });
 

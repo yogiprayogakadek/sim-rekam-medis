@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>SIM Rekam Medis</title>
+    <title>SIM Rekam Medis | RSD Mangusada</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/image/logo.png') }}">

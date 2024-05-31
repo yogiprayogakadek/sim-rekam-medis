@@ -85,8 +85,10 @@ class RekamMedisController extends Controller
                 'time' => now()->format('Y-m-d H:i:s'),
                 'title' => 'Create',
                 'content' => [
-                    'kode' => 'Insert kode rekam medis ' . $request->kode,
-                    // 'tanggal_unggah' => 'Insert tanggal unggah ' . now()->format('Y-m-d H:i:s'),
+                    'kode' => 'Insert kode rekam medis <strong>' . $request->kode . '</strong>',
+                    'nama_pasien' => 'Insert nama pasien <strong>' . $request->nama_pasien . '</strong>',
+                    'nik' => 'Insert nik pasien <strong>' . $request->nik . '</strong>',
+                    'jenis_kelamin' => 'Insert jenis kelamin <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
                     'dokumen' => $this->unggahDokumen($request)
                 ]
             ];
@@ -94,7 +96,9 @@ class RekamMedisController extends Controller
             $rekamMedis = [
                 'kode' => $request->kode,
                 'user_id' => auth()->user()->id,
-                // 'tanggal_unggah' => now()->format('Y-m-d H:i:s'),
+                'nama_pasien' => $request->nama_pasien,
+                'nik' => $request->nik,
+                'jenis_kelamin' => $request->jenis_kelamin,
                 'dokumen' => $this->unggahDokumen($request),
                 'log' => json_encode($log)
             ];
@@ -143,8 +147,14 @@ class RekamMedisController extends Controller
                 'time' => now()->format('Y-m-d H:i:s'),
                 'title' => 'Update',
                 'content' => [
-                    'kode' => 'Update kode rekam medis dari ' . $rekamMedis->kode . ' menjadi ' . $request->kode,
-                    // 'tanggal_unggah' => 'Tanggal diubah ' . now()->format('Y-m-d H:i:s'),
+                    'kode' => '<strong>' . $rekamMedis->kode . '</strong> to <strong>' . $request->kode . '</strong>',
+                    'nama_pasien' => '<strong>' . $rekamMedis->nama_pasien . '</strong> to <strong>' . $request->nama_pasien . '</strong>',
+                    'nik' => '<strong>' . $rekamMedis->nik . '</strong> to <strong>' . $request->nik . '</strong>',
+                    'jenis_kelamin' => '<strong>' . ($rekamMedis->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong> to <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
+                    // 'kode' => 'Update kode rekam medis dari <strong>' . $rekamMedis->kode . '</strong> menjadi <strong>' . $request->kode . '</strong>',
+                    // 'nama_pasien' => 'Update nama pasien dari <strong>' . $rekamMedis->nama_pasien . '</strong> menjadi <strong>' . $request->nama_pasien . '</strong>',
+                    // 'nik' => 'Update nik pasien dari <strong>' . $rekamMedis->nik . '</strong> menjadi <strong>' . $request->nik . '</strong>',
+                    // 'jenis_kelamin' => 'Update jenis kelamin dari <strong>' . ($rekamMedis->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong> menjadi <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
                     'dokumen' => $dokumen
                 ]
             ];
@@ -155,6 +165,9 @@ class RekamMedisController extends Controller
             $data = [
                 'kode' => $request->kode,
                 'user_id' => auth()->user()->id,
+                'nama_pasien' => $request->nama_pasien,
+                'nik' => $request->nik,
+                'jenis_kelamin' => $request->jenis_kelamin,
                 'log' => json_encode($rekamMedisLog)
             ];
 
@@ -186,9 +199,12 @@ class RekamMedisController extends Controller
                 'petugas' => User::find($log['user_id'])->nama,
                 'title' => $log['title'],
                 'tanggal' => date_format(date_create($log['time']), 'd-m-Y H:i:s'),
-                'kode' => preg_replace('/\b(RM-\S+)\b/', '<strong>$1</strong>', $content['kode']),
-                // 'kode' => ex plode('medis ', $content['kode'])[1],
-                'dokumen' => $content['dokumen']
+                'kode' => $content['kode'],
+                // 'kode' => preg_replace('/\b(RM-\S+)\b/', '<strong>$1</strong>', $content['kode']),
+                'dokumen' => $content['dokumen'],
+                'nama_pasien' => $content['nama_pasien'],
+                'jenis_kelamin' => $content['jenis_kelamin'],
+                'nik' => $content['nik']
             ];
         }
         // dd($data);

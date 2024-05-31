@@ -23,8 +23,50 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="form-group mb-0 mb-15 with-validation nik" id="nik-group">
+                            <label class="control-label mb-10 " for="nik">NIK</label>
+                            {{-- <label class="control-label mb-10 " for="nik">nik</label> <small>(biarkan
+                                kosong jika ingin membuat nik otomatis)</small> --}}
+                            <input type="text" id="nik" name="nik" class="form-control"
+                                placeholder="NIK Pasies" value="{{ $rekamMedis->nik }}">
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-nik"></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0 mb-15 with-validation nama_pasien" id="nama_pasien-group">
+                            <label class="control-label mb-10 " for="nama_pasien">Nama Pasien</label>
+                            {{-- <label class="control-label mb-10 " for="kode">Kode</label> <small>(biarkan
+                                kosong jika ingin membuat kode otomatis)</small> --}}
+                            <input type="text" id="nama_pasien" name="nama_pasien" class="form-control"
+                                placeholder="nama pasien" value="{{ $rekamMedis->nama_pasien }}">
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-nama_pasien"></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0 mb-15 with-validation nik" id="jenis_kelamin-group">
+                            <label class="control-label mb-10 " for="jenis_kelamin">Jenis Kelamin</label>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                                <option value="">Pilih jenis kelamin</option>
+                                <option value="1" {{ $rekamMedis->jenis_kelamin == 1 ? 'selected' : '' }}>Laki-laki
+                                </option>
+                                <option value="0" {{ $rekamMedis->jenis_kelamin == 0 ? 'selected' : '' }}>Perempuan
+                                </option>
+                            </select>
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-jenis_kelamin"></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="form-group mb-15 with-validation dokumen">
-                            <label class="control-label mb-10 text-left">File upload</label> <small>(biarkan
+                            <label class="control-label mb-10 text-left">Dokumen</label> <small>(biarkan
                                 kosong jika tidak ingin mengganti dokumen)</small>
                             <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                 <div class="form-control" data-trigger="fileinput"> <i

@@ -27,6 +27,9 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Kode</th>
+                                            <th>Nama Pasien</th>
+                                            <th>NIK</th>
+                                            <th>Jenis Kelamin</th>
                                             <th>Tanggal</th>
                                             <th>Petugas</th>
                                             <th>Total Perubahan</th>
@@ -45,6 +48,9 @@
                                                         {{ $rm->kode }}
                                                     </a>
                                                 </td>
+                                                <td>{{ $rm->nama_pasien }}</td>
+                                                <td>{{ $rm->nik }}</td>
+                                                <td>{{ $rm->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan' }}</td>
                                                 <td>{{ date_format(date_create($log[count($log) - 1]['time']), 'd-m-Y') }}
                                                 </td>
                                                 <td>{{ $rm->user->nama }}</td>
@@ -56,7 +62,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="4" class="text-right">
+                                            <td colspan="7" class="text-right">
                                                 <strong>Total Data</strong>
                                             </td>
                                             <td>

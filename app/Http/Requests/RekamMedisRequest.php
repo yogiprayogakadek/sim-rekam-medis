@@ -25,7 +25,10 @@ class RekamMedisRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'kode' => 'required|string'
+            'kode' => 'required|string',
+            'nama_pasien' => 'required|string',
+            'nik' => 'required|numeric|digits:16',
+            'jenis_kelamin' => 'required|in:0,1'
         ];
 
         if (!Request::instance()->has('id')) {
@@ -47,6 +50,9 @@ class RekamMedisRequest extends FormRequest
             'required' => ':attribute tidak boleh kosong',
             'mimes' => ':attribute harus berupa file berformat PDF.',
             'unique' => ':attribute sudah ada',
+            'numeric' => ':attribute harus berupa angka',
+            'digits' => ':attribute harus berupa angka dan panjangnya :digits digit',
+            'in' => ':attribute tidak valid'
         ];
     }
 
@@ -55,6 +61,9 @@ class RekamMedisRequest extends FormRequest
         return [
             'kode' => 'Kode rekam medis',
             'dokumen' => 'Dokumen',
+            'nama_pasien' => 'Nama pasien',
+            'nik' => 'NIK',
+            'jenis_kelamin' => 'Jenis kelamin'
         ];
     }
 }

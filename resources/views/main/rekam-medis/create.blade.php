@@ -17,15 +17,56 @@
                             {{-- <label class="control-label mb-10 " for="kode">Kode</label> <small>(biarkan
                                 kosong jika ingin membuat kode otomatis)</small> --}}
                             <input type="text" id="kode" name="kode" class="form-control"
-                                placeholder="kode rekam-medis">
+                                placeholder="kode rekam medis">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-kode"></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="form-group mb-0 mb-15 with-validation nik" id="nik-group">
+                            <label class="control-label mb-10 " for="nik">NIK</label>
+                            {{-- <label class="control-label mb-10 " for="nik">nik</label> <small>(biarkan
+                                kosong jika ingin membuat nik otomatis)</small> --}}
+                            <input type="text" id="nik" name="nik" class="form-control"
+                                placeholder="NIK Pasies">
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-nik"></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0 mb-15 with-validation nama_pasien" id="nama_pasien-group">
+                            <label class="control-label mb-10 " for="nama_pasien">Nama Pasien</label>
+                            {{-- <label class="control-label mb-10 " for="kode">Kode</label> <small>(biarkan
+                                kosong jika ingin membuat kode otomatis)</small> --}}
+                            <input type="text" id="nama_pasien" name="nama_pasien" class="form-control"
+                                placeholder="nama pasien">
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-nama_pasien"></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0 mb-15 with-validation nik" id="jenis_kelamin-group">
+                            <label class="control-label mb-10 " for="jenis_kelamin">Jenis Kelamin</label>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                                <option value="">Pilih jenis kelamin</option>
+                                <option value="1">Laki-laki</option>
+                                <option value="0">Perempuan</option>
+                            </select>
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-jenis_kelamin"></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="form-group mb-15 with-validation dokumen">
-                            <label class="control-label mb-10 text-left">File upload</label>
+                            <label class="control-label mb-10 text-left">Dokumen</label>
                             <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                 <div class="form-control" data-trigger="fileinput"> <i
                                         class="glyphicon glyphicon-file fileinput-exists"></i> <span

@@ -3,7 +3,7 @@
         <div class="nav-header pull-left">
             <div class="logo-wrap">
                 <a href="index.html">
-                    <img class="brand-img" src="{{ asset('assets/image/logo.png') }}" alt="brand" width="50px" />
+                    <img class="brand-img" src="{{ asset('assets/image/logo.png') }}" alt="brand" width="30px" />
                     <span class="brand-text">SIM-RM</span>
                 </a>
             </div>

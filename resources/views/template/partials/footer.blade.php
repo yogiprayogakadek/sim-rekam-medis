@@ -1,7 +1,7 @@
 <footer class="footer container-fluid pl-30 pr-30">
     <div class="row">
         <div class="col-sm-12">
-            <p>2024 &copy; SIM Rekam Medis</p>
+            <p>2024 &copy; SIM Rekam Medis | RSD Mangusada</p>
         </div>
     </div>
 </footer>

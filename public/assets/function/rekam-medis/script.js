@@ -85,10 +85,15 @@ $(document).ready(function () {
                                 }
                             }
                         );
+
                         $.each(formName, function (i, field) {
-                            $.inArray(field, errorName) == -1
-                                ? $("." + field).removeClass("is-invalid")
-                                : $("." + field).addClass("is-invalid");
+                            if ($.inArray(field, errorName) == -1) {
+                                $("." + field).removeClass("has-error has-danger");
+                                console.log(field)
+                                $(".error-" + field).html('');
+                            } else {
+                                $("." + field).addClass("has-error has-danger");
+                            }
                         });
                     }
                 }
@@ -112,7 +117,7 @@ $(document).ready(function () {
         });
     });
 
-    // on save button
+    // on save update
     $("body").on("click", ".btn-update", function (e) {
         $.ajaxSetup({
             headers: {
@@ -161,10 +166,15 @@ $(document).ready(function () {
                                 }
                             }
                         );
+
                         $.each(formName, function (i, field) {
-                            $.inArray(field, errorName) == -1
-                                ? $("." + field).removeClass("is-invalid")
-                                : $("." + field).addClass("is-invalid");
+                            if ($.inArray(field, errorName) == -1) {
+                                $("." + field).removeClass("has-error has-danger");
+                                console.log(field)
+                                $(".error-" + field).html('');
+                            } else {
+                                $("." + field).addClass("has-error has-danger");
+                            }
                         });
                     }
                 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -125,6 +126,30 @@ class UserController extends Controller
                 'status' => 'error',
                 'message' => $e->getMessage(),
                 // 'message' => 'Terjadi kesalahan!',
+                'title' => 'Gagal'
+            ]);
+        }
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        try {
+            // dd($request->all());
+            $user = User::where('id', $request->user_id)->first();
+            $user->update([
+                'password' => bcrypt($request->password)
+            ]);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil disimpan',
+                'title' => 'Berhasil'
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                // 'message' => $e->getMessage(),
+                'message' => 'Terjadi kesalahan!',
                 'title' => 'Gagal'
             ]);
         }
