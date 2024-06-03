@@ -42,10 +42,13 @@ Route::namespace('Main')->middleware('auth')->group(function() {
             Route::get('/edit/{id}', 'edit')->name('edit');
             Route::post('/store', 'store')->name('store');
             Route::post('/update', 'update')->name('update');
+            // Forget password
             Route::post('/update-password', 'updatePassword')->name('update.password');
             Route::post('/delete', 'delete')->name('delete');
         });
 
+    // Change Password
+    Route::post('/user/change-password', 'UserController@changePassword')->name('user.change.password');
 });
 
 Auth::routes();

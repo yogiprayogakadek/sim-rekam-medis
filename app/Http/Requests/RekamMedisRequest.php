@@ -26,6 +26,7 @@ class RekamMedisRequest extends FormRequest
     {
         $rules =  [
             'kode' => 'required|string',
+            'tanggal_dokumen' => 'required|date',
             'nama_pasien' => 'required|string',
             'nik' => 'required|numeric|digits:16',
             'jenis_kelamin' => 'required|in:0,1'
@@ -52,7 +53,8 @@ class RekamMedisRequest extends FormRequest
             'unique' => ':attribute sudah ada',
             'numeric' => ':attribute harus berupa angka',
             'digits' => ':attribute harus berupa angka dan panjangnya :digits digit',
-            'in' => ':attribute tidak valid'
+            'in' => ':attribute tidak valid',
+            'date' => ':attribute tidak valid'
         ];
     }
 
@@ -63,7 +65,8 @@ class RekamMedisRequest extends FormRequest
             'dokumen' => 'Dokumen',
             'nama_pasien' => 'Nama pasien',
             'nik' => 'NIK',
-            'jenis_kelamin' => 'Jenis kelamin'
+            'jenis_kelamin' => 'Jenis kelamin',
+            'tanggal_dokumen' => 'Tanggal dokumen'
         ];
     }
 }

@@ -86,6 +86,7 @@ class RekamMedisController extends Controller
                 'title' => 'Create',
                 'content' => [
                     'kode' => 'Insert kode rekam medis <strong>' . $request->kode . '</strong>',
+                    'tanggal_dokumen' => 'Insert tanggal dokumen <strong>' . date_format(date_create($request->tanggal_dokumen), 'd-m-Y') . '</strong>',
                     'nama_pasien' => 'Insert nama pasien <strong>' . $request->nama_pasien . '</strong>',
                     'nik' => 'Insert nik pasien <strong>' . $request->nik . '</strong>',
                     'jenis_kelamin' => 'Insert jenis kelamin <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
@@ -95,6 +96,7 @@ class RekamMedisController extends Controller
 
             $rekamMedis = [
                 'kode' => $request->kode,
+                'tanggal_dokumen' => $request->tanggal_dokumen,
                 'user_id' => auth()->user()->id,
                 'nama_pasien' => $request->nama_pasien,
                 'nik' => $request->nik,
@@ -148,6 +150,7 @@ class RekamMedisController extends Controller
                 'title' => 'Update',
                 'content' => [
                     'kode' => '<strong>' . $rekamMedis->kode . '</strong> to <strong>' . $request->kode . '</strong>',
+                    'tanggal_dokumen' => '<strong>' . $rekamMedis->tanggal_dokumen . '</strong> to <strong>' . $request->tanggal_dokumen . '</strong>',
                     'nama_pasien' => '<strong>' . $rekamMedis->nama_pasien . '</strong> to <strong>' . $request->nama_pasien . '</strong>',
                     'nik' => '<strong>' . $rekamMedis->nik . '</strong> to <strong>' . $request->nik . '</strong>',
                     'jenis_kelamin' => '<strong>' . ($rekamMedis->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong> to <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
@@ -164,6 +167,7 @@ class RekamMedisController extends Controller
 
             $data = [
                 'kode' => $request->kode,
+                'tanggal_dokumen' => $request->tanggal_dokumen,
                 'user_id' => auth()->user()->id,
                 'nama_pasien' => $request->nama_pasien,
                 'nik' => $request->nik,
@@ -200,6 +204,7 @@ class RekamMedisController extends Controller
                 'title' => $log['title'],
                 'tanggal' => date_format(date_create($log['time']), 'd-m-Y H:i:s'),
                 'kode' => $content['kode'],
+                'tanggal_dokumen' => $content['tanggal_dokumen'],
                 // 'kode' => preg_replace('/\b(RM-\S+)\b/', '<strong>$1</strong>', $content['kode']),
                 'dokumen' => $content['dokumen'],
                 'nama_pasien' => $content['nama_pasien'],
@@ -248,18 +253,19 @@ class RekamMedisController extends Controller
             $startTime = $request->input('tanggal_awal');
             $endTime = $request->input('tanggal_akhir');
 
-            $data = RekamMedis::with('user')->get();
+            $rekamMedis = RekamMedis::with('user')->whereBetween('tanggal_dokumen', [$startTime, $endTime])->get();
 
             // Filter records based on the 'time' attribute within the 'log' array
-            $rekamMedis = $data->filter(function ($record) use ($startTime, $endTime) {
-                $logs = json_decode($record->log, true);
-                foreach ($logs as $log) {
-                    if (isset($log['time']) && $log['time'] >= $startTime && $log['time'] <= $endTime) {
-                        return true;
-                    }
-                }
-                return false;
-            });
+            // $data = RekamMedis::with('user')->get();
+            // $rekamMedis = $data->filter(function ($record) use ($startTime, $endTime) {
+            //     $logs = json_decode($record->log, true);
+            //     foreach ($logs as $log) {
+            //         if (isset($log['time']) && $log['time'] >= $startTime && $log['time'] <= $endTime) {
+            //             return true;
+            //         }
+            //     }
+            //     return false;
+            // });
         }
 
         $view = [
@@ -277,18 +283,19 @@ class RekamMedisController extends Controller
             $startTime = $request->input('tanggal_awal');
             $endTime = $request->input('tanggal_akhir');
 
-            $data = RekamMedis::with('user')->get();
+            $rekamMedis = RekamMedis::with('user')->whereBetween('tanggal_dokumen', [$startTime, $endTime])->get();
 
             // Filter records based on the 'time' attribute within the 'log' array
-            $rekamMedis = $data->filter(function ($record) use ($startTime, $endTime) {
-                $logs = json_decode($record->log, true);
-                foreach ($logs as $log) {
-                    if (isset($log['time']) && $log['time'] >= $startTime && $log['time'] <= $endTime) {
-                        return true;
-                    }
-                }
-                return false;
-            });
+            // $data = RekamMedis::with('user')->get();
+            // $rekamMedis = $data->filter(function ($record) use ($startTime, $endTime) {
+            //     $logs = json_decode($record->log, true);
+            //     foreach ($logs as $log) {
+            //         if (isset($log['time']) && $log['time'] >= $startTime && $log['time'] <= $endTime) {
+            //             return true;
+            //         }
+            //     }
+            //     return false;
+            // });
         }
 
         $view = [

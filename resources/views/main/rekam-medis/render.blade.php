@@ -14,10 +14,11 @@
                             <th>#</th>
                             <th>Title</th>
                             <th>Kode</th>
+                            <th>Tanggal Dokumen</th>
                             <th>Nama Pasien</th>
                             <th>NIK</th>
                             <th>Jenis Kelamin</th>
-                            <th>Tanggal</th>
+                            {{-- <th>Tanggal</th> --}}
                             <th>Petugas</th>
                             <th>Dokumen</th>
                         </tr>
@@ -116,10 +117,11 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Kode</th>
+                                    <th>Tanggal Dokumen</th>
                                     <th>Nama Pasien</th>
                                     <th>NIK</th>
                                     <th>Jenis Kelamin</th>
-                                    <th>Tanggal</th>
+                                    {{-- <th>Tanggal</th> --}}
                                     <th>Petugas</th>
                                     <th>Dokumen</th>
                                     <th>Aksi</th>
@@ -139,10 +141,11 @@
                                                 {{ $rm->kode }}
                                             </a>
                                         </td>
+                                        <td>{{ date_format(date_create($rm->tanggal_dokumen), 'd-m-Y') }}</td>
                                         <td>{{ $rm->nama_pasien }}</td>
                                         <td>{{ $rm->nik }}</td>
                                         <td>{{ $rm->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan' }}</td>
-                                        <td>{{ date_format(date_create($log[count($log) - 1]['time']), 'd-m-Y') }}</td>
+                                        {{-- <td>{{ date_format(date_create($log[count($log) - 1]['time']), 'd-m-Y') }}</td> --}}
                                         <td>{{ $rm->user->nama }}</td>
                                         <td>
                                             <a href="{{ $log[count($log) - 1]['content']['dokumen'] }}"
@@ -207,10 +210,11 @@
                         "<td>" + (index + 1) + "</td>" +
                         "<td>" + value.title + "</td>" +
                         "<td>" + value.kode + "</td>" +
+                        "<td>" + value.tanggal_dokumen + "</td>" +
                         "<td>" + value.nama_pasien + "</td>" +
                         "<td>" + value.nik + "</td>" +
                         "<td>" + value.jenis_kelamin + "</td>" +
-                        "<td>" + value.tanggal + "</td>" +
+                        // "<td>" + value.tanggal + "</td>" +
                         "<td>" + value.petugas + "</td>" +
                         "<td><a href=" + value.dokumen + " target='_blank'>" +
                         "<button class='btn btn-primary btn-outline btn-anim btn-sm'><i class='icon-cloud-download'></i><span class='btn-text'>Dokumen</span></button>" +

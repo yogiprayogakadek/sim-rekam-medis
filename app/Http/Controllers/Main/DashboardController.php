@@ -56,7 +56,7 @@ class DashboardController extends Controller
 
         // Mengelompokkan berdasarkan jenis kelamin dan menghitung jumlahnya
         $records = RekamMedis::selectRaw('jenis_kelamin, COUNT(*) as count')
-            ->whereBetween('created_at', [$startTime, $endTime])
+            ->whereBetween('tanggal_dokumen', [$startTime, $endTime])
             ->groupBy('jenis_kelamin')
             ->get();
 

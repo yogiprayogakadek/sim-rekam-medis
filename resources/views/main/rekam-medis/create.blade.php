@@ -25,6 +25,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group mb-0 mb-15 with-validation tanggal_dokumen" id="tanggal_dokumen-group">
+                            <label class="control-label mb-10 " for="tanggal_dokumen">Tanggal Dokumen</label>
+                            <input type="date" id="tanggal_dokumen" name="tanggal_dokumen" class="form-control"
+                                placeholder="tanggal dokumen">
+                            <div class="help-block with-errors error-message">
+                                <ul class="list-unstyled">
+                                    <li class="error-tanggal_dokumen"></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="form-group mb-0 mb-15 with-validation nik" id="nik-group">
                             <label class="control-label mb-10 " for="nik">NIK</label>
                             {{-- <label class="control-label mb-10 " for="nik">nik</label> <small>(biarkan

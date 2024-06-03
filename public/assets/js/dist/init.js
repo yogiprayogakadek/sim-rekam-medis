@@ -1,5 +1,5 @@
 /** *************Init JS*********************
-	
+
     TABLE OF CONTENTS
 	---------------------------
 	1.Ready function
@@ -9,8 +9,8 @@
 	5.Chat App function
 	6.Resize function
  ** ***************************************/
- 
- "use strict"; 
+
+ "use strict";
 /*****Ready function start*****/
 $(document).ready(function(){
 	philbert();
@@ -47,24 +47,24 @@ var setHeightWidth = function () {
 	var width = $(window).width();
 	$('.full-height').css('height', (height));
 	$('.page-wrapper').css('min-height', (height));
-	
+
 	/*Right Sidebar Scroll Start*/
 	if(width<=1007){
 		$('#chat_list_scroll').css('height', (height - 270));
 		$('.fixed-sidebar-right .chat-content').css('height', (height - 279));
 		$('.fixed-sidebar-right .set-height-wrap').css('height', (height - 219));
-		
+
 	}
 	else {
 		$('#chat_list_scroll').css('height', (height - 204));
 		$('.fixed-sidebar-right .chat-content').css('height', (height - 213));
 		$('.fixed-sidebar-right .set-height-wrap').css('height', (height - 153));
-	}	
+	}
 	/*Right Sidebar Scroll End*/
-	
+
 	/*Vertical Tab Height Cal Start*/
 	var verticalTab = $(".vertical-tab");
-	if( verticalTab.length > 0 ){ 
+	if( verticalTab.length > 0 ){
 		for(var i = 0; i < verticalTab.length; i++){
 			var $this =$(verticalTab[i]);
 			$this.find('ul.nav').css(
@@ -89,23 +89,23 @@ var setHeightWidth = function () {
 /***** philbert function start *****/
 var $wrapper = $(".wrapper");
 var philbert = function(){
-	
+
 	/*Counter Animation*/
 	var counterAnim = $('.counter-anim');
 	if( counterAnim.length > 0 ){
 		counterAnim.counterUp({ delay: 10,
         time: 1000});
 	}
-	
+
 	/*Tooltip*/
 	if( $('[data-toggle="tooltip"]').length > 0 )
 		$('[data-toggle="tooltip"]').tooltip();
-	
+
 	/*Popover*/
 	if( $('[data-toggle="popover"]').length > 0 )
 		$('[data-toggle="popover"]').popover()
-	
-	
+
+
 	/*Sidebar Collapse Animation*/
 	var sidebarNavCollapse = $('.fixed-sidebar-left .side-nav  li .collapse');
 	var sidebarNavAnchor = '.fixed-sidebar-left .side-nav  li a';
@@ -114,23 +114,23 @@ var philbert = function(){
 				$(this).blur();
 		$(sidebarNavCollapse).not($(this).parent().parent()).collapse('hide');
 	});
-	
+
 	/*Panel Remove*/
 	$(document).on('click', '.close-panel', function (e) {
 		var effect = $(this).data('effect');
 			$(this).closest('.panel')[effect]();
-		return false;	
+		return false;
 	});
-	
+
 	/*Accordion js*/
 		$(document).on('show.bs.collapse', '.panel-collapse', function (e) {
 		$(this).siblings('.panel-heading').addClass('activestate');
 	});
-	
+
 	$(document).on('hide.bs.collapse', '.panel-collapse', function (e) {
 		$(this).siblings('.panel-heading').removeClass('activestate');
 	});
-	
+
 	/*Sidebar Navigation*/
 	$(document).on('click', '#toggle_nav_btn,#open_right_sidebar,#setting_panel_btn', function (e) {
 		$(".dropdown.open > .dropdown-toggle").dropdown("toggle");
@@ -140,17 +140,17 @@ var philbert = function(){
 		$wrapper.removeClass('open-right-sidebar open-setting-panel').toggleClass('slide-nav-toggle');
 		return false;
 	});
-	
+
 	$(document).on('click', '#open_right_sidebar', function (e) {
 		$wrapper.toggleClass('open-right-sidebar').removeClass('open-setting-panel');
 		return false;
-	
+
 	});
-	
+
 	$(document).on('click','.product-carousel .owl-nav',function(e){
 		return false;
 	});
-	
+
 	$(document).on('click', 'body', function (e) {
 		if($(e.target).closest('.fixed-sidebar-right,.setting-panel').length > 0) {
 			return;
@@ -158,12 +158,12 @@ var philbert = function(){
 		$('body > .wrapper').removeClass('open-right-sidebar open-setting-panel');
 		return;
 	});
-	
+
 	$(document).on('show.bs.dropdown', '.nav.navbar-right.top-nav .dropdown', function (e) {
 		$wrapper.removeClass('open-right-sidebar open-setting-panel');
 		return;
 	});
-	
+
 	$(document).on('click', '#setting_panel_btn', function (e) {
 		$wrapper.toggleClass('open-setting-panel').removeClass('open-right-sidebar');
 		return false;
@@ -172,28 +172,28 @@ var philbert = function(){
 		$wrapper.toggleClass('mobile-nav-open').removeClass('open-right-sidebar');
 		return;
 	});
-	
+
 
 	$(document).on("mouseenter mouseleave",".wrapper > .fixed-sidebar-left", function(e) {
 		if (e.type == "mouseenter") {
-			$wrapper.addClass("sidebar-hover"); 
+			$wrapper.addClass("sidebar-hover");
 		}
-		else { 
-			$wrapper.removeClass("sidebar-hover");  
+		else {
+			$wrapper.removeClass("sidebar-hover");
 		}
 		return false;
 	});
-	
+
 	$(document).on("mouseenter mouseleave",".wrapper > .setting-panel", function(e) {
 		if (e.type == "mouseenter") {
-			$wrapper.addClass("no-transition"); 
+			$wrapper.addClass("no-transition");
 		}
-		else { 
-			$wrapper.removeClass("no-transition");  
+		else {
+			$wrapper.removeClass("no-transition");
 		}
 		return false;
 	});
-	
+
 	/*Todo*/
 	var random = Math.random();
 	$(document).on("keypress","#add_todo",function (e) {
@@ -205,7 +205,7 @@ var philbert = function(){
 		}
 		return;
 	});
-	
+
 	/*Chat*/
 	$(document).on("keypress","#input_msg_send",function (e) {
 		if ((e.which == 13)&&(!$(this).val().length == 0)) {
@@ -234,7 +234,7 @@ var philbert = function(){
 		}
 		return;
 	});
-	
+
 	$(document).on("click",".fixed-sidebar-right .chat-cmplt-wrap .chat-data",function (e) {
 		$(".fixed-sidebar-right .chat-cmplt-wrap").addClass('chat-box-slide');
 		return false;
@@ -243,7 +243,7 @@ var philbert = function(){
 		$(".fixed-sidebar-right .chat-cmplt-wrap").removeClass('chat-box-slide');
 		return false;
 	});
-	
+
 	/*Chat for Widgets*/
 	$(document).on("click",".chat-for-widgets.chat-cmplt-wrap .chat-data",function (e) {
 		$(".chat-for-widgets.chat-cmplt-wrap").addClass('chat-box-slide');
@@ -257,7 +257,7 @@ var philbert = function(){
 	$(document).on("show.bs.collapse",".top-fixed-nav .fixed-sidebar-left .side-nav > li > ul",function (e) {
 		e.preventDefault();
 	});
-	
+
 	/*Slimscroll*/
 	$('.nicescroll-bar').slimscroll({height:'100%',color: '#878787', disableFadeOut : true,borderRadius:0,size:'4px',alwaysVisible:false});
 	$('.message-nicescroll-bar').slimscroll({height:'229px',size: '4px',color: '#878787',disableFadeOut : true,borderRadius:0});
@@ -269,7 +269,7 @@ var philbert = function(){
 	$('.users-chat-nicescroll-bar').slimscroll({height:'257px',size: '4px',color: '#878787',disableFadeOut : true,borderRadius:0});
 	$('.chatapp-nicescroll-bar').slimscroll({height:'543px',size: '4px',color: '#878787',disableFadeOut : true,borderRadius:0});
 	$('.chatapp-chat-nicescroll-bar').slimscroll({height:'483px',size: '4px',color: '#878787',disableFadeOut : true,borderRadius:0});
-	
+
 	/*Product carousel*/
 	if( $('.product-carousel').length > 0 )
 	var $owl = $('.product-carousel').owlCarousel({
@@ -294,7 +294,7 @@ var philbert = function(){
 			}
 		}
 	});
-	
+
 	/*Refresh Init Js*/
 	var refreshMe = '.refresh';
 	$(document).on("click",refreshMe,function (e) {
@@ -315,14 +315,14 @@ var philbert = function(){
 		},1500);
 		  return false;
 	});
-	
+
 	/*Fullscreen Init Js*/
 	$(document).on("click",".full-screen",function (e) {
 		$(this).parents('.panel').toggleClass('fullscreen');
 		$(window).trigger('resize');
 		return false;
 	});
-	
+
 	/*Nav Tab Responsive Js*/
 	$(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
 		var $target = $(e.target);
@@ -354,7 +354,7 @@ var chatApp = function() {
 		var width = $(window).width();
 		if(width<=1007) {
 			chatAppTarget.removeClass('chat-box-slide');
-		}	
+		}
 		return false;
 	});
 };
@@ -366,7 +366,7 @@ var boxLayout = function() {
 		else if($wrapper.hasClass("box-layout rtl-layout"))
 			$(".box-layout .fixed-sidebar-right").css({left: $wrapper.offset().left});
 }
-boxLayout();	
+boxLayout();
 
 /**Only For Setting Panel Start**/
 
@@ -378,11 +378,11 @@ var fixedHeader = function() {
 		$wrapper.removeClass("scrollable-nav");
 	}
 };
-fixedHeader();	
+fixedHeader();
 $(document).on('change', '.setting-panel #switch_3', function () {
 	fixedHeader();
 	return false;
-});	
+});
 
 /*Theme Color Init*/
 $(document).on('click', '.theme-option-wrap > li', function (e) {
@@ -390,7 +390,7 @@ $(document).on('click', '.theme-option-wrap > li', function (e) {
 	$wrapper.removeClass (function (index, className) {
 		return (className.match (/(^|\s)theme-\S+/g) || []).join(' ');
 	}).addClass($(this).attr('id')+'-active');
-	return false;	
+	return false;
 });
 
 /*Primary Color Init*/
@@ -414,10 +414,10 @@ $(document).on('click', '#reset_setting', function (e) {
 	if($(".setting-panel #switch_3").is(":checked"))
 		$('.setting-panel .layout-switcher .switchery').trigger('click');
 		$('#pimary-color-green').trigger('click');
-	return false;	
+	return false;
 });
 
-	
+
 /*Switchery Init*/
 var elems = Array.prototype.slice.call(document.querySelectorAll('.setting-panel .js-switch'));
 $('.setting-panel .js-switch').each(function() {
@@ -434,3 +434,77 @@ $(window).on("resize", function () {
 }).resize();
 /***** Resize function end *****/
 
+
+
+/***** Change Password User start *****/
+$('body').on('click', '.change-password', function() {
+    $('#change-password-modal').modal('show')
+});
+
+$("body").on("click", ".btn-change-password", function(e) {
+    $.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+    });
+    let form = $("#formChangePassword")[0];
+    let data = new FormData(form);
+    $.ajax({
+        type: "POST",
+        url: "/user/change-password",
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        // beforeSend: function() {
+        //     $(".btn-change-password").html("Loading...").prop('disabled', true);
+        // },
+        // done: function() {
+        //     $(".btn-change-password").html("Simpan").prop('disabled', false);
+        // },
+        success: function(response) {
+            $(".with-validation").removeClass("has-error has-danger");
+            Swal.fire(response.title, response.message, response.status);
+            if (response.status == "success") {
+                $('#change-password-modal').modal('hide');
+            }
+        },
+        error: function(error) {
+            let formName = [];
+            let errorName = [];
+
+            $.each($("#formChangePassword").serializeArray(), function(i, field) {
+                formName.push(field.name.replace(/\[|\]/g, ""));
+            });
+            if (error.status == 422) {
+                if (error.responseJSON.errors) {
+                    $.each(
+                        error.responseJSON.errors,
+                        function(key, value) {
+                            errorName.push(key);
+                            if ($("#change-password-modal ." + key).val() == "") {
+                                $("#change-password-modal ." + key).addClass(
+                                    "has-error has-danger");
+                                $("#change-password-modal .error-" + key).html(value);
+                            }
+                        }
+                    );
+
+                    $.each(formName, function(i, field) {
+                        if ($.inArray(field, errorName) == -1) {
+                            $("#change-password-modal ." + field).removeClass(
+                                "has-error has-danger");
+                            console.log(field)
+                            $("#change-password-modal .error-" + field).html('');
+                        } else {
+                            $("#change-password-modal ." + field).addClass(
+                                "has-error has-danger");
+                        }
+                    });
+                }
+            }
+            $(".btn-update-password").html("Simpan").prop('disabled', false);
+        },
+    });
+});
+/***** Change Password User start *****/
