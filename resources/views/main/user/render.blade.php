@@ -82,7 +82,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
-                                            <a href="javascript:void(0)" class="change-password"
+                                            <a href="javascript:void(0)" class="forgot-password"
                                                 data-id="{{ $user->id }}" data-username="{{ $user->username }}"
                                                 data-toggle="tooltip" title="Double click untuk mengubah password">
                                                 {{ $user->username }}
@@ -117,7 +117,7 @@
             responsive: true
         });
 
-        $('.change-password').on('dblclick', function() {
+        $('.forgot-password').on('dblclick', function() {
             let username = $(this).data('username')
             let id = $(this).data('id')
             $('#password-modal').modal('show');

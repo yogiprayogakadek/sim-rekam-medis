@@ -31,7 +31,7 @@
                                             <th>Nama Pasien</th>
                                             <th>NIK</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Tanggal</th>
+                                            {{-- <th>Tanggal</th> --}}
                                             <th>Petugas</th>
                                             <th>Total Perubahan</th>
                                         </tr>
