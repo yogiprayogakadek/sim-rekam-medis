@@ -135,9 +135,9 @@ class RekamMedisController extends Controller
     public function update(RekamMedisRequest $request)
     {
         // dd($request->all());
-        $dokumen = $request->hasFile('dokumen') ? $this->unggahDokumen($request) : 'null';
         try {
             $rekamMedis = RekamMedis::find($request->id);
+            $dokumen = $request->hasFile('dokumen') ? $this->unggahDokumen($request) : $rekamMedis->dokumen;
             // dd($rekamMedis);
             // current log
             $rekamMedisLog = json_decode($rekamMedis->log, true);
@@ -221,12 +221,12 @@ class RekamMedisController extends Controller
         try {
             $rekamMedis = RekamMedis::find($request->id);
             // dd($rekamMedis);
-            $log = json_decode($rekamMedis->log, true);
+            // $log = json_decode($rekamMedis->log, true);
 
-            foreach ($log as $log) {
-                $content = $log['content'];
-                unlink($content['dokumen']);
-            }
+            // // foreach ($log as $log) {
+            // //     $content = $log['content'];
+            // //     unlink($content['dokumen']);
+            // // }
 
             $rekamMedis->delete();
 

@@ -13,7 +13,7 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Kode</th>
+                            <th>Nomor RM</th>
                             <th>Tanggal Dokumen</th>
                             <th>Nama Pasien</th>
                             <th>NIK</th>
@@ -116,7 +116,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Kode</th>
+                                    <th>Nomor RM</th>
                                     <th>Tanggal Dokumen</th>
                                     <th>Nama Pasien</th>
                                     <th>NIK</th>

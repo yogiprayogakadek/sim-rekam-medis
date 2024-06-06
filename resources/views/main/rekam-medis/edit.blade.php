@@ -14,7 +14,7 @@
                     <form id="formUpdate">
                         <input type="text" name="id" class="form-control hidden" value="{{ $rekamMedis->id }}">
                         <div class="form-group mb-0 mb-15 with-validation kode" id="kode-group">
-                            <label class="control-label mb-10 " for="kode">Kode</label>
+                            <label class="control-label mb-10 " for="kode">Nomor RM</label>
                             <input type="text" id="kode" name="kode" class="form-control"
                                 placeholder="kode rekam-medis" value="{{ $rekamMedis->kode }}">
                             <div class="help-block with-errors error-message">
