@@ -49,7 +49,7 @@
                     <select name="kategori" id="kategori" class="form-control">
                         <option value="">Pilih Kategori</option>
                         <option value="Semua">Semua Data</option>
-                        <option value="Range Waktu">Range Waktu</option>
+                        <option value="Range Waktu">Rentang Waktu</option>
                     </select>
                 </div>
 
@@ -81,8 +81,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-outline btn-search">Filter</button>
-                <button type="button" class="btn btn-primary btn-outline btn-print-data">Print</button>
+                <button type="button" class="btn btn-primary btn-outline btn-search">Saring</button>
+                <button type="button" class="btn btn-primary btn-outline btn-print-data">Cetak</button>
             </div>
         </div>
     </div>
@@ -95,10 +95,10 @@
         <div class="panel-heading">
             <div class="pull-left">
                 <button class="btn btn-info btn-rounded btn-lable-wrap left-label btn-filter"> <span
-                        class="btn-label"><i class="fa fa-search white-icon"></i> </span><span class="btn-text">Filter
+                        class="btn-label"><i class="fa fa-search white-icon"></i> </span><span class="btn-text">Saring
                         Data</span></button>
                 <button class="btn btn-default btn-rounded btn-lable-wrap left-label btn-print ml-10"> <span
-                        class="btn-label"><i class="fa fa-print white-icon"></i> </span><span class="btn-text">Print
+                        class="btn-label"><i class="fa fa-print white-icon"></i> </span><span class="btn-text">Cetak
                         Data</span></button>
             </div>
             <div class="pull-right">
@@ -230,7 +230,7 @@
         // filter modal
         $('.btn-filter').on('click', function() {
             $('#filter-modal').modal('show')
-            $('#filter-modal .modal-title').text('Filter Data')
+            $('#filter-modal .modal-title').text('Saring Data')
             $('.btn-search').show()
             $('.btn-print-data').hide();
             $('.btn-search').prop('disabled', true)
@@ -242,7 +242,7 @@
         // filter modal
         $('.btn-print').on('click', function() {
             $('#filter-modal').modal('show')
-            $('#filter-modal .modal-title').text('Print Data')
+            $('#filter-modal .modal-title').text('Cetak Data')
             $('.btn-print-data').prop('disabled', true)
             $('.btn-search').hide()
             $('.btn-print-data').show();
@@ -254,7 +254,7 @@
             // value == 'Range Waktu' ? $('.range-date').prop('hidden', false) : $('.range-date').prop(
             //     'hidden',
             //     true);
-            // if (title == 'Filter Data') {
+            // if (title == 'Saring Data') {
             //     value == 'Semua' ? $('.btn-search').prop('disabled', false) : $('.btn-search').prop(
             //         'disabled', true);
             // } else {
@@ -268,7 +268,7 @@
 
             $('.range-date').prop('hidden', value !== 'Range Waktu');
 
-            const $button = title == 'Filter Data' ? $('.btn-search') : $('.btn-print-data');
+            const $button = title == 'Saring Data' ? $('.btn-search') : $('.btn-print-data');
             $button.prop('disabled', value !== 'Semua');
         });
 
@@ -292,14 +292,14 @@
 
             // Mengaktifkan atau menonaktifkan tombol pencarian
             // let title = $('#filter-modal .modal-title').text();
-            // if (title == 'Filter Data') {
+            // if (title == 'Saring Data') {
             //     $('.btn-search').prop('disabled', !tanggalAwal || !tanggalAkhir);
             // } else {
             //     $('.btn-print-data').prop('disabled', !tanggalAwal || !tanggalAkhir);
             // }
 
             let title = $('#filter-modal .modal-title').text();
-            let $button = title == 'Filter Data' ? $('.btn-search') : $('.btn-print-data');
+            let $button = title == 'Saring Data' ? $('.btn-search') : $('.btn-print-data');
             $button.prop('disabled', !tanggalAwal || !tanggalAkhir);
 
             // Validasi individual tanggal
@@ -355,7 +355,7 @@
             });
         });
 
-        // print data
+        // Cetak Data
         $("body").on("click", ".btn-print-data", function() {
             let tanggalAwal = $('.tanggal-awal').val();
             let tanggalAkhir = $('.tanggal-akhir').val();

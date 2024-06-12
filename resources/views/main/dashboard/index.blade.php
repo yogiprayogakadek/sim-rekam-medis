@@ -1,9 +1,9 @@
 @extends('template.master')
 
-@section('page-title', 'Dashboard')
+@section('page-title', 'Halaman utama')
 @section('sub-title', 'Home')
 @push('page-link')
-    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+    <a href="{{ route('dashboard.index') }}">Halaman utama</a>
 @endpush
 @push('css')
     <link rel="stylesheet" href="{{ asset('assets/css/dist/morris.css') }}">

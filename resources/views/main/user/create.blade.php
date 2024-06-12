@@ -13,9 +13,9 @@
                 <div class="form-wrap">
                     <form id="formAdd">
                         <div class="form-group mb-0 mb-15 with-validation username" id="username-group">
-                            <label class="control-label mb-10 " for="username">Username</label>
+                            <label class="control-label mb-10 " for="username">Nama Pengguna</label>
                             <input type="text" id="username" name="username" class="form-control"
-                                placeholder="username">
+                                placeholder="masukkan nama pengguna">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-username"></li>
@@ -23,8 +23,9 @@
                             </div>
                         </div>
                         <div class="form-group mb-0 mb-15 with-validation nama" id="nama-group">
-                            <label class="control-label mb-10 " for="nama">Nama</label>
-                            <input type="text" id="nama" name="nama" class="form-control" placeholder="nama">
+                            <label class="control-label mb-10 " for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" class="form-control"
+                                placeholder="masukkan nama lengkap">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-nama"></li>
@@ -32,10 +33,10 @@
                             </div>
                         </div>
                         <div class="form-group mb-0 mb-15 with-validation password" id="password-group">
-                            <label class="control-label mb-10 " for="password">Password</label> <small>(Default
-                                password)</small>
+                            <label class="control-label mb-10 " for="password">Kata Sandi</label> <small>(kata sandi
+                                bawaan)</small>
                             <input type="text" id="password" name="password" class="form-control"
-                                placeholder="password" value="12345678" disabled>
+                                placeholder="masukkan kata sandi" value="12345678" disabled>
                         </div>
                         <div class="form-group mb-0">
                             <button class="btn btn-success btn-anim btn-save" type="button"><i

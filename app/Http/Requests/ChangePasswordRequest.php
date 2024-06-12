@@ -49,9 +49,9 @@ class ChangePasswordRequest extends FormRequest
     public function attributes()
     {
         return [
-            'current_password' => 'Password saat ini',
-            'new_password' => 'Password baru',
-            'confirm_password' => 'Konfirmasi password',
+            'current_password' => 'Kata sandi saat ini',
+            'new_password' => 'Kata sandi baru',
+            'confirm_password' => 'Konfirmasi kata sandi',
         ];
     }
 }

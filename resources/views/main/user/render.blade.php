@@ -11,11 +11,11 @@
                 <form id="formUpdate">
                     <div class="form-group password with-validation">
                         <input type="text" id="user-id" name="user_id" class="form-control hidden">
-                        <label class="col-sm-3 control-label mt-10" for="password">Password</label>
+                        <label class="col-sm-3 control-label mt-10" for="password">Kata Sandi</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password"
-                                    placeholder="Masukkan password baru" name="password">
+                                    placeholder="Masukkan kata sandi baru" name="password">
                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
                             </div>
                             <div class="help-block with-errors error-message">
@@ -27,11 +27,11 @@
                     </div>
 
                     <div class="form-group re_password with-validation">
-                        <label class="col-sm-3 control-label mt-10" for="re-password">Re Password</label>
+                        <label class="col-sm-3 control-label mt-10" for="re-password">Konfirmasi Kata Sandi</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="re-password"
-                                    placeholder="Masukkan ulang password" name="re_password">
+                                    placeholder="Masukkan ulang kata sandi" name="re_password">
                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
                             </div>
                             <div class="help-block with-errors error-message">
@@ -70,9 +70,9 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Username</th>
-                                    <th>Nama</th>
-                                    <th>Role</th>
+                                    <th>Nama Pengguna</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Jabatan</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -144,7 +144,7 @@
                 contentType: false,
                 cache: false,
                 beforeSend: function() {
-                    $(".btn-update-password").html("Loading...").prop('disabled', true);
+                    $(".btn-update-password").html("Mohon tunggu...").prop('disabled', true);
                 },
                 done: function() {
                     $(".btn-update-password").html("Simpan").prop('disabled', false);

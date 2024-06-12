@@ -6,7 +6,8 @@
         </li>
         <li>
             <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">
-                <div class="pull-left"><i class="zmdi zmdi-home mr-20"></i><span class="right-nav-text">Dashboard</span>
+                <div class="pull-left"><i class="zmdi zmdi-home mr-20"></i><span class="right-nav-text">Halaman
+                        utama</span>
                 </div>
                 <div class="clearfix"></div>
             </a>
@@ -15,7 +16,7 @@
             <li>
                 <a href="{{ route('user.index') }}" class="{{ Request::is('user') ? 'active' : '' }}">
                     <div class="pull-left"><i class="zmdi zmdi-account-circle mr-20"></i><span
-                            class="right-nav-text">Staff</span>
+                            class="right-nav-text">Pegawai</span>
                     </div>
                     <div class="clearfix"></div>
                 </a>

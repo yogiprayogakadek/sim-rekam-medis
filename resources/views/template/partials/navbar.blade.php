@@ -5,16 +5,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h5 class="modal-title">Change Password</h5>
+                <h5 class="modal-title">Ubah Kata Sandi</h5>
             </div>
             <div class="modal-body">
                 <form id="formChangePassword">
                     <div class="form-group current_password with-validation">
-                        <label class="col-sm-3 control-label mt-10" for="current_password">Password Sekarang</label>
+                        <label class="col-sm-3 control-label mt-10" for="current_password">Kata Sandi Sekarang</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="current_password"
-                                    placeholder="Masukkan password sekarang" name="current_password">
+                                    placeholder="Masukkan kata sandi sekarang" name="current_password">
                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
                             </div>
                             <div class="help-block with-errors error-message">
@@ -26,11 +26,11 @@
                     </div>
 
                     <div class="form-group new_password with-validation">
-                        <label class="col-sm-3 control-label mt-10" for="new_password">Password Baru</label>
+                        <label class="col-sm-3 control-label mt-10" for="new_password">Kata Sandi Baru</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="new_password"
-                                    placeholder="Masukkan password baru" name="new_password">
+                                    placeholder="Masukkan kata sandi baru" name="new_password">
                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
                             </div>
                             <div class="help-block with-errors error-message">
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group confirm_password with-validation">
-                        <label class="col-sm-3 control-label mt-10" for="confirm_password">Password Konfirmasi</label>
+                        <label class="col-sm-3 control-label mt-10" for="confirm_password">Konfirmasi Password</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="confirm_password"
@@ -90,14 +90,14 @@
                         class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
-                        <a href="javascript:void(0)" class="change-password"><i class="zmdi zmdi-lock"></i><span>Change
-                                Password</span></a>
+                        <a href="javascript:void(0)" class="change-password"><i class="zmdi zmdi-lock"></i><span>Ubah
+                                Kata Sandi</span></a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="#"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                                class="zmdi zmdi-power"></i><span>Keluar</span></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>

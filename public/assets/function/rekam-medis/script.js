@@ -54,7 +54,7 @@ $(document).ready(function () {
             contentType: false,
             cache: false,
             beforeSend: function() {
-                $(".btn-save").html("Loading...").prop('disabled', true);
+                $(".btn-save").html("Mohon tunggu...").prop('disabled', true);
             },
             done: function () {
                 $(".btn-save").html("Simpan").prop('disabled', false);
@@ -134,7 +134,7 @@ $(document).ready(function () {
             contentType: false,
             cache: false,
             beforeSend: function() {
-                $(".btn-update").html("Loading...").prop('disabled', true);
+                $(".btn-update").html("Mohon tunggu...").prop('disabled', true);
             },
             done: function () {
                 $(".btn-update").html("Simpan").prop('disabled', false);

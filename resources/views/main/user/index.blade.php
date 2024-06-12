@@ -1,9 +1,9 @@
 @extends('template.master')
 
-@section('page-title', 'User')
+@section('page-title', 'Pengguna')
 @section('sub-title', 'List')
 @push('page-link')
-    <a href="{{ route('user.index') }}">User</a>
+    <a href="{{ route('user.index') }}">Pengguna</a>
 @endpush
 {{-- @push('css')
     <link rel="stylesheet" href="{{ asset('assets/css/dist/jasny-bootstrap.min.css') }}">

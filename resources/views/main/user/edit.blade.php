@@ -14,9 +14,9 @@
                     <form id="formUpdate">
                         <input type="text" name="id" class="form-control hidden" value="{{ $user->id }}">
                         <div class="form-group mb-0 mb-15 with-validation username" id="username-group">
-                            <label class="control-label mb-10 " for="username">Username</label>
+                            <label class="control-label mb-10 " for="username">Nama Pengguna</label>
                             <input type="text" id="username" name="username" class="form-control"
-                                placeholder="username" value="{{ $user->username }}">
+                                placeholder="masukkan nama pengguna" value="{{ $user->username }}">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-username"></li>
@@ -24,9 +24,9 @@
                             </div>
                         </div>
                         <div class="form-group mb-0 mb-15 with-validation nama" id="nama-group">
-                            <label class="control-label mb-10 " for="nama">Nama</label>
-                            <input type="text" id="nama" name="nama" class="form-control" placeholder="nama"
-                                value="{{ $user->nama }}">
+                            <label class="control-label mb-10 " for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" class="form-control"
+                                placeholder="masukkan nama lengkap" value="{{ $user->nama }}">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-nama"></li>

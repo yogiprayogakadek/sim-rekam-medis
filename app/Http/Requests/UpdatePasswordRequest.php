@@ -43,8 +43,8 @@ class UpdatePasswordRequest extends FormRequest
     public function attributes()
     {
         return [
-            'password' => 'Password baru',
-            're_password' => 'Konfirmasi password',
+            'password' => 'Kata sandi baru',
+            're_password' => 'Konfirmasi kata sandi',
         ];
     }
 }

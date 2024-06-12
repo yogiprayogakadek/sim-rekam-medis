@@ -49,8 +49,8 @@ class UserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'username' => 'Username',
-            'nama' => 'Nama',
+            'username' => 'Nama pengguna',
+            'nama' => 'Nama lengkap',
             'Status' => 'status',
         ];
     }
