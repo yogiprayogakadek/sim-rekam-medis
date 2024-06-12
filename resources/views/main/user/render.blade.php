@@ -74,6 +74,8 @@
                                     <th>Nama Lengkap</th>
                                     <th>Jabatan</th>
                                     <th>Status</th>
+                                    <th>Tanggal Buat</th>
+                                    <th>Tanggal Ubah</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -90,6 +92,8 @@
                                         <td>{{ $user->nama }}</td>
                                         <td>{{ $user->level }}</td>
                                         <td>{{ $user->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                        <td>{{ date_format(date_create($user->created_at), 'd-m-Y H:i:s') }}</td>
+                                        <td>{{ date_format(date_create($user->updated_at), 'd-m-Y H:i:s') }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button class="btn btn-default btn-icon-anim btn-square btn-sm btn-edit"
@@ -114,14 +118,33 @@
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
         $('#table').DataTable({
-            responsive: true
+            responsive: true,
+            language: {
+                paginate: {
+                    previous: "Sebelumnya",
+                    next: "Selanjutnya"
+                },
+                info: "Menampilkan _START_ to _END_ from _TOTAL_ data",
+                infoEmpty: "Menampilkan 0 to 0 from 0 data",
+                lengthMenu: "Menampilkan _MENU_ data",
+                search: "Cari:",
+                emptyTable: "Datanya tidak ada",
+                zeroRecords: "Data tidak cocok",
+                loadingRecords: "Memuat..",
+                processing: "Pengolahan...",
+                infoFiltered: "(disaring dari _MAX_ total data)"
+            },
+            lengthMenu: [
+                [5, 10, 15, 20, -1],
+                [5, 10, 15, 20, "Semua"]
+            ],
         });
 
         $('.forgot-password').on('dblclick', function() {
             let username = $(this).data('username')
             let id = $(this).data('id')
             $('#password-modal').modal('show');
-            $('#password-modal .modal-title').html('Update Password - <strong>' + username +
+            $('#password-modal .modal-title').html('Ubah Kata Sandi - <strong>' + username +
                 '</strong>');
 
             // set id
@@ -144,7 +167,8 @@
                 contentType: false,
                 cache: false,
                 beforeSend: function() {
-                    $(".btn-update-password").html("Mohon tunggu...").prop('disabled', true);
+                    $(".btn-update-password").html("Mohon tunggu...").prop('disabled',
+                        true);
                 },
                 done: function() {
                     $(".btn-update-password").html("Simpan").prop('disabled', false);

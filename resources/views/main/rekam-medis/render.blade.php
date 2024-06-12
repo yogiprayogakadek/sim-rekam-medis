@@ -124,6 +124,8 @@
                                     {{-- <th>Tanggal</th> --}}
                                     <th>Petugas</th>
                                     <th>Dokumen</th>
+                                    <th>Tanggal Buat</th>
+                                    <th>Tanggal Ubah</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -155,6 +157,8 @@
                                                         class="btn-text">Dokumen</span></button>
                                             </a>
                                         </td>
+                                        <td>{{ date_format(date_create($rm->created_at), 'd-m-Y H:i:s') }}</td>
+                                        <td>{{ date_format(date_create($rm->updated_at), 'd-m-Y H:i:s') }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button
@@ -181,7 +185,26 @@
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
         $('#table').DataTable({
-            responsive: true
+            responsive: true,
+            language: {
+                paginate: {
+                    previous: "Sebelumnya",
+                    next: "Selanjutnya"
+                },
+                info: "Menampilkan _START_ to _END_ from _TOTAL_ data",
+                infoEmpty: "Menampilkan 0 to 0 from 0 data",
+                lengthMenu: "Menampilkan _MENU_ data",
+                search: "Cari:",
+                emptyTable: "Datanya tidak ada",
+                zeroRecords: "Data tidak cocok",
+                loadingRecords: "Memuat..",
+                processing: "Pengolahan...",
+                infoFiltered: "(disaring dari _MAX_ total data)"
+            },
+            lengthMenu: [
+                [5, 10, 15, 20, -1],
+                [5, 10, 15, 20, "Semua"]
+            ],
         });
 
         $('.history-check').on('dblclick', function() {
