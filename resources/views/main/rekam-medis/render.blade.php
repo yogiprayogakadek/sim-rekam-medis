@@ -139,7 +139,7 @@
                                         <td>
                                             <a href="javascript:void(0)" class="history-check"
                                                 data-id="{{ $rm->id }}" data-kode="{{ $rm->kode }}"
-                                                data-toggle="tooltip" title="Double click untuk melihat history">
+                                                data-toggle="tooltip" title="Klik dua kali untuk melihat riwayat">
                                                 {{ $rm->kode }}
                                             </a>
                                         </td>
@@ -210,7 +210,7 @@
         $('.history-check').on('dblclick', function() {
             let kodeRekamMedis = $(this).data('kode')
             $('#responsive-modal').modal('show');
-            $('#responsive-modal .modal-title').html('Histori Perubahan - <strong>' + kodeRekamMedis +
+            $('#responsive-modal .modal-title').html('Riwayat Perubahan - <strong>' + kodeRekamMedis +
                 '</strong>');
 
             // Hancurkan DataTable jika sudah ada

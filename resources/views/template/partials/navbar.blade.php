@@ -42,11 +42,11 @@
                     </div>
 
                     <div class="form-group confirm_password with-validation">
-                        <label class="col-sm-3 control-label mt-10" for="confirm_password">Konfirmasi Password</label>
+                        <label class="col-sm-3 control-label mt-10" for="confirm_password">Konfirmasi Kata Sandi Baru</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input type="password" class="form-control" id="confirm_password"
-                                    placeholder="Masukkan ulang password" name="confirm_password">
+                                    placeholder="Masukkan ulang kata sandi baru" name="confirm_password">
                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
                             </div>
                             <div class="help-block with-errors error-message">

@@ -32,7 +32,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     <a href="javascript:void(0)" class="history-check" data-id="{{ $rm->id }}"
-                        data-kode="{{ $rm->kode }}" data-toggle="tooltip" title="Double click untuk melihat history">
+                        data-kode="{{ $rm->kode }}" data-toggle="tooltip" title="Klik dua kali untuk melihat riwayat">
                         {{ $rm->kode }}
                     </a>
                 </td>

@@ -86,7 +86,7 @@
                                         <td>
                                             <a href="javascript:void(0)" class="forgot-password"
                                                 data-id="{{ $user->id }}" data-username="{{ $user->username }}"
-                                                data-toggle="tooltip" title="Double click untuk mengubah password">
+                                                data-toggle="tooltip" title="Klik dua kali untuk mengubah kata sandi">
                                                 {{ $user->username }}
                                         </td>
                                         <td>{{ $user->nama }}</td>

@@ -51,7 +51,7 @@
 
                     <!-- Subtitle -->
                     <p class="text-secondary">
-                        Masukkan username and password untuk login
+                        Masukkan nama pengguna and kata sandi untuk login
                     </p>
 
                     <!-- Form -->
@@ -63,12 +63,12 @@
 
                                     <!-- Label -->
                                     <label class="form-label">
-                                        Username
+                                        Nama Pengguna
                                     </label>
 
                                     <!-- Input -->
                                     <input type="text" class="form-control @error('username') is-invalid @enderror"
-                                        placeholder="masukkan username" name="username" id="username"
+                                        placeholder="masukkan nama pengguna" name="username" id="username"
                                         value="{{ old('username') }}">
                                     @error('username')
                                         <span class="invalid-feedback" role="alert">
@@ -87,7 +87,7 @@
 
                                             <!-- Label -->
                                             <label class="form-label">
-                                                Password
+                                                Kata Sandi
                                             </label>
                                         </div>
                                     </div> <!-- / .row -->
@@ -97,14 +97,14 @@
                                         <input type="password"
                                             class="form-control @error('password') is-invalid @enderror"
                                             autocomplete="off" data-toggle-password-input=""
-                                            placeholder="masukkan password" name="password">
+                                            placeholder="masukkan kata sandi" name="password">
 
                                         <button type="button" class="input-group-text px-4 text-secondary link-primary"
                                             data-toggle-password=""></button>
 
                                     </div>
                                     <a href="javascript::void(0)" class="text-muted text-small forget-password">Lupa
-                                        password</a>
+                                        kata sandi</a>
                                 </div>
                             </div>
                         </div> <!-- / .row -->
@@ -149,7 +149,7 @@
                     "closeButton": true,
                     "progressBar": true
                 }
-                toastr.info("Mohon menghubungi admin untuk pergantian password");
+                toastr.info("Mohon menghubungi admin untuk pergantian kata sandi");
             })
             @if (Session::has('error'))
                 toastr.options = {
