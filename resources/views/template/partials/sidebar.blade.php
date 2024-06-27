@@ -25,7 +25,7 @@
         <li>
             <a href="{{ route('rekam-medis.index') }}" class="{{ Request::is('rekam-medis') ? 'active' : '' }}">
                 <div class="pull-left"><i class="zmdi zmdi-hospital mr-20"></i><span class="right-nav-text">Rekam
-                        Medis</span>
+                        Medis Inaktif</span>
                 </div>
                 <div class="clearfix"></div>
             </a>

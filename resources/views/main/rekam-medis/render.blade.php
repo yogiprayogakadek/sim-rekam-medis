@@ -391,7 +391,7 @@
             });
 
             Swal.fire({
-                title: "Cetak data rekam medis?",
+                title: "Cetak data rekam medis inaktif?",
                 text: "Laporan akan dicetak",
                 icon: "success",
                 showCancelButton: true,
@@ -418,7 +418,7 @@
                         },
                         success: function(response) {
                             document.title =
-                                "SIM Rekam Medis | RSD Mangusada - Print" +
+                                "SIM Rekam Medis Inaktif | RSD Mangusada - Print" +
                                 new Date().toJSON().slice(0, 10).replace(/-/g, "/");
                             $(response.data)
                                 .find("div.printableArea")

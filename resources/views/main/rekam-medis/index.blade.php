@@ -1,9 +1,9 @@
 @extends('template.master')
 
-@section('page-title', 'Rekam Medis')
+@section('page-title', 'Rekam Medis Inaktif')
 @section('sub-title', 'List')
 @push('page-link')
-    <a href="{{ route('rekam-medis.index') }}">Rekam Medis</a>
+    <a href="{{ route('rekam-medis.index') }}">Rekam Medis Inaktif</a>
 @endpush
 {{-- @push('css')
     <link rel="stylesheet" href="{{ asset('assets/css/dist/jasny-bootstrap.min.css') }}">

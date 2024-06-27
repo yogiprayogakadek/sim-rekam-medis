@@ -27,7 +27,7 @@
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('assets/image/logo.png') }}" sizes="any">
     <!-- Page Title -->
-    <title>SIM Rekam Medis | RSD Mangusada</title>
+    <title>SIM Rekam Medis Inaktif | RSD Mangusada</title>
 </head>
 
 <body class="d-flex align-items-center bg-light-green">
@@ -46,7 +46,7 @@
                 <div>
                     <!-- Title -->
                     <h1 class="mb-2">
-                        SIM Rekam Medis | RSD Mangusada
+                        SIM Rekam Medis Inaktif | RSD Mangusada
                     </h1>
 
                     <!-- Subtitle -->

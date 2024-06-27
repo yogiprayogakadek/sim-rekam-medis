@@ -33,7 +33,7 @@
                                     <div class="col-xs-12 text-center">
                                         <span class="counts block head-font"><span>Selamat
                                                 Datang</span></span>
-                                        <span class="counts-text block">Sistem Informasi Rekam Medis</span>
+                                        <span class="counts-text block">Sistem Informasi Rekam Medis Inaktif</span>
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
 
                     // Footer
                     $('#daily_chart .panel-footer').html(
-                        'Total dari keseluruhan data scan pada rekam medis in-aktif pada tanggal <strong>' +
+                        'Total dari keseluruhan data scan pada rekam medis inaktif pada tanggal <strong>' +
                         currentDate + '</strong> adalah sebanyak <strong>' + data.total +
                         '</strong> data');
                 });
@@ -256,7 +256,7 @@
 
                         // Footer
                         $('#filter_chart .panel-footer').html(
-                            'Total dari keseluruhan data scan pada rekam medis in-aktif dari tanggal <strong>' +
+                            'Total dari keseluruhan data scan pada rekam medis inaktif dari tanggal <strong>' +
                             moment(tanggalAwal).format('DD MMMM YYYY') +
                             '</strong> sampai dengan tanggal <strong>' +
                             moment(tanggalAkhir).format('DD MMMM YYYY') +

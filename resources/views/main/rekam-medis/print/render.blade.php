@@ -1,6 +1,6 @@
 @extends('template.master')
 
-@section('page-title', 'Rekam Medis')
+@section('page-title', 'Rekam Medis Inaktif')
 @section('sub-title', 'List')
 
 
@@ -14,7 +14,7 @@
                             <img src="{{ asset('assets/image/logo.png') }}" class="inline-block" width="150px">
                         </div>
                         <div class="pull-right">
-                            <h3>Data Rekam Medis</h3>
+                            <h3>Data Rekam Medis Inaktif</h3>
                             <span>Tanggal dicetak: {{ date('d-m-Y H:i:s') }}</span>
                         </div>
                         <div class="clearfix"></div>

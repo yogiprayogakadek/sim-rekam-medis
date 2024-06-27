@@ -16,7 +16,7 @@
                         <div class="form-group mb-0 mb-15 with-validation kode" id="kode-group">
                             <label class="control-label mb-10 " for="kode">Nomor RM</label>
                             <input type="text" id="kode" name="kode" class="form-control"
-                                placeholder="kode rekam-medis" value="{{ $rekamMedis->kode }}">
+                                placeholder="kode rekam medis" value="{{ $rekamMedis->kode }}">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-kode"></li>
@@ -40,7 +40,7 @@
                             {{-- <label class="control-label mb-10 " for="nik">nik</label> <small>(biarkan
                                 kosong jika ingin membuat nik otomatis)</small> --}}
                             <input type="text" id="nik" name="nik" class="form-control"
-                                placeholder="NIK Pasies" value="{{ $rekamMedis->nik }}">
+                                placeholder="NIK pasien" value="{{ $rekamMedis->nik }}">
                             <div class="help-block with-errors error-message">
                                 <ul class="list-unstyled">
                                     <li class="error-nik"></li>
