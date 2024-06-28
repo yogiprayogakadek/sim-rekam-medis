@@ -49,7 +49,7 @@ class RekamMedisRequest extends FormRequest
     {
         return [
             'required' => ':attribute tidak boleh kosong',
-            'mimes' => ':attribute harus berupa file berformat PDF.',
+            'mimes' => ':attribute harus berupa file berformat PDF atau Gambar.',
             'unique' => ':attribute sudah ada',
             'numeric' => ':attribute harus berupa angka',
             'digits' => ':attribute harus berupa angka dan panjangnya :digits digit',
