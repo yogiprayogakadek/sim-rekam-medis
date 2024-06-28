@@ -28,17 +28,17 @@ class RekamMedisRequest extends FormRequest
             'kode' => 'required|string',
             'tanggal_dokumen' => 'required|date',
             'nama_pasien' => 'required|string',
-            'nik' => 'required|numeric|digits:16',
+            // 'nik' => 'required|numeric|digits:16',
             'jenis_kelamin' => 'required|in:0,1'
         ];
 
         if (!Request::instance()->has('id')) {
             $rules += [
-                'dokumen' => 'required|mimes:pdf'
+                'dokumen' => 'required|mimes:pdf,jpeg,jpg,png,gif',
             ];
         } else {
             $rules += [
-                'dokumen' => 'nullable|mimes:pdf'
+                'dokumen' => 'nullable|mimes:pdf,jpeg,jpg,png,gif',
             ];
         }
 
@@ -64,7 +64,7 @@ class RekamMedisRequest extends FormRequest
             'kode' => 'Kode rekam medis',
             'dokumen' => 'Dokumen',
             'nama_pasien' => 'Nama pasien',
-            'nik' => 'NIK',
+            // 'nik' => 'NIK',
             'jenis_kelamin' => 'Jenis kelamin',
             'tanggal_dokumen' => 'Tanggal dokumen'
         ];

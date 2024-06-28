@@ -88,7 +88,7 @@ class RekamMedisController extends Controller
                     'kode' => 'Insert kode rekam medis <strong>' . $request->kode . '</strong>',
                     'tanggal_dokumen' => 'Insert tanggal dokumen <strong>' . date_format(date_create($request->tanggal_dokumen), 'd-m-Y') . '</strong>',
                     'nama_pasien' => 'Insert nama pasien <strong>' . $request->nama_pasien . '</strong>',
-                    'nik' => 'Insert nik pasien <strong>' . $request->nik . '</strong>',
+                    // 'nik' => 'Insert nik pasien <strong>' . $request->nik . '</strong>',
                     'jenis_kelamin' => 'Insert jenis kelamin <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
                     'dokumen' => $this->unggahDokumen($request)
                 ]
@@ -99,7 +99,7 @@ class RekamMedisController extends Controller
                 'tanggal_dokumen' => $request->tanggal_dokumen,
                 'user_id' => auth()->user()->id,
                 'nama_pasien' => $request->nama_pasien,
-                'nik' => $request->nik,
+                // 'nik' => $request->nik,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'dokumen' => $this->unggahDokumen($request),
                 'log' => json_encode($log)
@@ -152,7 +152,7 @@ class RekamMedisController extends Controller
                     'kode' => '<strong>' . $rekamMedis->kode . '</strong> to <strong>' . $request->kode . '</strong>',
                     'tanggal_dokumen' => '<strong>' . $rekamMedis->tanggal_dokumen . '</strong> to <strong>' . $request->tanggal_dokumen . '</strong>',
                     'nama_pasien' => '<strong>' . $rekamMedis->nama_pasien . '</strong> to <strong>' . $request->nama_pasien . '</strong>',
-                    'nik' => '<strong>' . $rekamMedis->nik . '</strong> to <strong>' . $request->nik . '</strong>',
+                    // 'nik' => '<strong>' . $rekamMedis->nik . '</strong> to <strong>' . $request->nik . '</strong>',
                     'jenis_kelamin' => '<strong>' . ($rekamMedis->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong> to <strong>' . ($request->jenis_kelamin == true ? 'Laki-laki' : 'Perempuan') . '</strong>',
                     // 'kode' => 'Update kode rekam medis dari <strong>' . $rekamMedis->kode . '</strong> menjadi <strong>' . $request->kode . '</strong>',
                     // 'nama_pasien' => 'Update nama pasien dari <strong>' . $rekamMedis->nama_pasien . '</strong> menjadi <strong>' . $request->nama_pasien . '</strong>',
@@ -170,7 +170,7 @@ class RekamMedisController extends Controller
                 'tanggal_dokumen' => $request->tanggal_dokumen,
                 'user_id' => auth()->user()->id,
                 'nama_pasien' => $request->nama_pasien,
-                'nik' => $request->nik,
+                // 'nik' => $request->nik,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'log' => json_encode($rekamMedisLog)
             ];
@@ -209,7 +209,7 @@ class RekamMedisController extends Controller
                 'dokumen' => $content['dokumen'],
                 'nama_pasien' => $content['nama_pasien'],
                 'jenis_kelamin' => $content['jenis_kelamin'],
-                'nik' => $content['nik']
+                // 'nik' => $content['nik']
             ];
         }
         // dd($data);

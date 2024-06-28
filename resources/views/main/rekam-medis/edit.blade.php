@@ -35,10 +35,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group mb-0 mb-15 with-validation nik" id="nik-group">
+                        {{-- <div class="form-group mb-0 mb-15 with-validation nik" id="nik-group">
                             <label class="control-label mb-10 " for="nik">NIK</label>
-                            {{-- <label class="control-label mb-10 " for="nik">nik</label> <small>(biarkan
-                                kosong jika ingin membuat nik otomatis)</small> --}}
                             <input type="text" id="nik" name="nik" class="form-control"
                                 placeholder="NIK pasien" value="{{ $rekamMedis->nik }}">
                             <div class="help-block with-errors error-message">
@@ -46,7 +44,7 @@
                                     <li class="error-nik"></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group mb-0 mb-15 with-validation nama_pasien" id="nama_pasien-group">
                             <label class="control-label mb-10 " for="nama_pasien">Nama Pasien</label>

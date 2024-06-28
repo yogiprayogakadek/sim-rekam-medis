@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('kode', 50);
             $table->date('tanggal_dokumen');
-            $table->char('nik', 16);
+            // $table->char('nik', 16);
             $table->string('nama_pasien', 100);
             $table->boolean('jenis_kelamin');
             $table->string('dokumen', 100);
